@@ -1,36 +1,28 @@
 # Files organizer By date
 
-### About
-This utility effortlessly organizes files within a directory based on their creation dates.
+### Description
+This Python script organizes files into a structured folder hierarchy based on their creation date. It supports multiple calendar systems (Gregorian and Hebrew) and can determine the creation date from various sources (file name, file system metadata, or EXIF data for images).
 
 ### Features
-    + Sorts files into subdirectories based on their 
-        creation dates (year and month).
-    + Copy or Move the files
-    + Get the creation date from file name yyyymmdd* 
-        or file info or Exif
-    + Support Hebrew Calander
+    + Flexible date handling: Choose between Gregorian and Hebrew calendars.
+    + Multiple date sources: Extract creation dates from file names, file system metadata, or EXIF data.
+    + Customizable output: Specify a destination path or use the source path by default.
+    + Copying or moving: Choose to either copy or move files to their new locations.
+    + Automatic conflict resolution: Renames files with timestamp prefixes to avoid overwriting existing files.
+    + Progress tracking: Prints messages indicating the number of files remaining to be processed.
 
-### Using
+### Usage
 ```
 ---
-    usage: main.py [-h] --path PATH [--dest_path DEST_PATH] [--copy COPY] 
-            [--calander_type CALANDER_TYPE] [--date_source DATE_SOURCE]
+    1. Install required libraries: pip install pyluach
 
-    options:
-        -h, --help            show this help message and exit
-        --path PATH, --s PATH source files path
-        --dest_path DEST_PATH, --dp DEST_PATH destination files path
-        --copy COPY, --c COPY type y to copy file, default is move
-        --calander_type CALANDER_TYPE, 
-            --ct CALANDER_TYPE calander type: 
-                1. for Gregorian calendar (default), 
-                2. for Hebrew calender
+    2. Run the script from the command line: python files_org.py
+        Provide arguments as needed:
+        --path or -s: The path to the source directory containing the files to organize.
+        --dest_path or -dp: (Optional) The path to the destination directory where organized files will be placed. Defaults to the source path.
+        --copy or -c: (Optional) Set to 'y' to copy files instead of moving them. Defaults to moving files.
+        --calander_type or -ct: (Optional) Set to '2' to use the Hebrew calendar. Defaults to the Gregorian calendar.
+        --date_source or -d: (Optional) Set to '1' to use file names, '2' to use file system metadata, or '3' to use EXIF data. Defaults to file system metadata.
 
-        --date_source DATE_SOURCE, 
-            --d DATE_SOURCE create date source: 
-                1. for file name date yyyymmdd*, 
-                2. for create date field, 
-                3. for create date from the metadata
 ---
 ```
